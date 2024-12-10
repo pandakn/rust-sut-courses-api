@@ -1,0 +1,9 @@
+/target
+
+# env
+.env*
+!.env.example
+
+build.txt
+run.txt
+test.txt
