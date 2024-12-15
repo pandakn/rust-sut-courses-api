@@ -1,0 +1,120 @@
+<html>
+   <head>
+   </head>
+   <body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF" text="#000000" alink="#003399" link="#003399" vlink="#003399" class="vsc-initialized">
+      <table border="0" cellpadding="0" cellspacing="0">
+         <tbody>
+            <tr valign="TOP" bgcolor="#515151">
+               <!-- Vertical Bar -->
+               <td width="3" bgcolor="#FFFFA0">&nbsp;</td>
+               <td bgcolor="#FFFFFF">
+                  <!-- Begin Page Detail -->
+                  <font face="MS Sans Serif" size="3">
+                     <font face="MS Sans Serif" size="3">
+                        <font face="MS Sans Serif" color="#0000FF" size="5">
+                           <font face="MS Sans Serif" size="3">
+                              <br>
+                              <table border="0" cellspacing="1" cellpadding="0">
+                                 <tbody>
+                                    <tr>
+                                       <td></td>
+                                       <td valign="TOP" align="CENTER"><a href="#bottom"><img src="images/common/button/pull_down_1.gif" width="11" height="10" border="0"></a></td>
+                                       <td colspan="7"><font face="MS Sans Serif" size="3"><b>ใช้เม้าส์ Click ที่รหัสวิชาเพื่อแสดงรายละเอียดของวิชานั้นๆ</b></font></td>
+                                    </tr>
+                                    <tr>
+                                       <td></td>
+                                       <td rowspan="2" bgcolor="#383880"><font size="1" color="#FFFFFF">&nbsp;รหัสวิชา - Version</font></td>
+                                       <td rowspan="2" bgcolor="#383880"><font size="1" color="#FFFFFF">&nbsp;ชื่อรายวิชา</font></td>
+                                       <td rowspan="2" nowrap="" bgcolor="#383880"><font size="1" color="#FFFFFF">&nbsp;หน่วยกิต&nbsp;</font></td>
+                                       <td rowspan="2" nowrap="" bgcolor="#383880"><font size="1" color="#FFFFFF">&nbsp;ภาษา&nbsp;</font></td>
+                                       <td rowspan="2" nowrap="" bgcolor="#383880"><font size="1" color="#FFFFFF">&nbsp;ระดับ&nbsp;</font></td>
+                                       <td rowspan="2" nowrap="" bgcolor="#383880"><font size="1" color="#FFFFFF">&nbsp;เวลา&nbsp;</font></td>
+                                       <td colspan="5" nowrap="" align="CENTER" bgcolor="#383880"><font size="1" color="#FFFFFF">&nbsp;ข้อมูลรายวิชาในปีการศึกษาที่&nbsp;2567/2</font></td>
+                                    </tr>
+                                    <tr>
+                                       <td></td>
+                                       <td align="RIGHT" bgcolor="#383880"><font size="1" color="#FFFFFF">กลุ่ม&nbsp;</font></td>
+                                       <td align="RIGHT" bgcolor="#383880"><font size="1" color="#FFFFFF">รับ&nbsp;</font></td>
+                                       <td align="RIGHT" bgcolor="#383880"><font size="1" color="#FFFFFF">ลง&nbsp;</font></td>
+                                       <td align="RIGHT" bgcolor="#383880"><font size="1" color="#FFFFFF">เหลือ&nbsp;</font></td>
+                                       <td bgcolor="#383880"><font size="1" color="#FFFFFF">&nbsp;สถานะ</font></td>
+                                    </tr>
+                                    <tr valign="TOP">
+                                       <td width="30"></td>
+                                       <td bgcolor="#F0F0F5"><font size="2">&nbsp;<a href="class_info_2.asp?backto=home&amp;option=0&amp;courseid=1009172&amp;coursecode=523332&amp;acadyear=2567&amp;semester=2&amp;avs826163971=35">523332 - 2</a>&nbsp;</font></td>
+                                       <td bgcolor="#F0F0F5">
+                                          <font size="2">
+                                             SOFTWARE ENGINEERING<br>
+                                             <font size="1" color="#660000">
+                                                ( This is mock note)
+                                                <font size="1" color="#407060">
+                                                   <li>Dr. AA AA</li>
+                                                   <li>Dr. BB BB</li>
+                                                   <li>Dr. CC CC</li>
+                                                   <li>Dr. DD DD</li>
+                                                </font>
+                                             </font>
+                                          </font>
+                                       </td>
+                                       <td nowrap="" bgcolor="#F0F0F5"><font size="1">&nbsp;4 (3-3-9)</font></td>
+                                       <td align="CENTER" nowrap="" bgcolor="#F0F0F5"><font size="1">&nbsp;TH : ไทย</font></td>
+                                       <td align="CENTER" nowrap="" bgcolor="#F0F0F5"><font size="1">&nbsp;ปริญญาตรี&nbsp;</font></td>
+                                       <td nowrap="" bgcolor="#F0F0F5"><font size="1"><b><font color="#5080E0">Mo</font></b><font color="#808080">09:00-12:00 <u>B1121</u><br><b><font color="#5080E0">We</font></b><font color="#808080">09:00-12:00 <u>F11-422.Software</u></font></font></font></td>
+                                       <td align="RIGHT" bgcolor="#F0F0F5"><font size="1">1&nbsp;</font></td>
+                                       <td align="RIGHT" bgcolor="#F0F0F5"><font size="1">5&nbsp;</font></td>
+                                       <td align="RIGHT" bgcolor="#F0F0F5"><font size="1">5&nbsp;</font></td>
+                                       <td align="RIGHT" bgcolor="#F0F0F5"><font size="1">0&nbsp;</font></td>
+                                       <td bgcolor="#F0F0F5"><font size="1">&nbsp;W</font></td>
+                                       <td></td>
+                                    </tr>
+                                    <tr valign="TOP">
+                                       <td width="30"></td>
+                                       <td bgcolor="#F0F0FF"><font size="2">&nbsp;<a href="class_info_2.asp?backto=home&amp;option=0&amp;courseid=1009172&amp;coursecode=523332&amp;acadyear=2567&amp;semester=2&amp;avs826163971=36">523332 - 2</a>&nbsp;</font></td>
+                                       <td bgcolor="#F0F0FF">
+                                          <font size="2">
+                                             SOFTWARE ENGINEERING<br>
+                                             <font size="1" color="#660000">
+                                                ( This is mock note)
+                                                <font size="1" color="#407060">
+                                                   <li>Dr. AA AA</li>
+                                                   <li>Dr. BB BB</li>
+                                                   <li>Dr. CC CC</li>
+                                                   <li>Dr. DD DD</li>
+                                                </font>
+                                             </font>
+                                          </font>
+                                       </td>
+                                       <td nowrap="" bgcolor="#F0F0FF"><font size="1">&nbsp;4 (3-3-9)</font></td>
+                                       <td align="CENTER" nowrap="" bgcolor="#F0F0FF"><font size="1">&nbsp;TH : ไทย</font></td>
+                                       <td align="CENTER" nowrap="" bgcolor="#F0F0FF"><font size="1">&nbsp;ปริญญาตรี&nbsp;</font></td>
+                                       <td nowrap="" bgcolor="#F0F0FF"><font size="1"><b><font color="#5080E0">Mo</font></b><font color="#808080">09:00-12:00 <u>B1121</u><br><b><font color="#5080E0">We</font></b><font color="#808080">13:00-16:00 <u>F11-422.Software</u></font></font></font></td>
+                                       <td align="RIGHT" bgcolor="#F0F0FF"><font size="1">2&nbsp;</font></td>
+                                       <td align="RIGHT" bgcolor="#F0F0FF"><font size="1">5&nbsp;</font></td>
+                                       <td align="RIGHT" bgcolor="#F0F0FF"><font size="1">5&nbsp;</font></td>
+                                       <td align="RIGHT" bgcolor="#F0F0FF"><font size="1">0&nbsp;</font></td>
+                                       <td bgcolor="#F0F0FF"><font size="1">&nbsp;W</font></td>
+                                       <td></td>
+                                    </tr>
+                                    <tr>
+                                       <td width="30"></td>
+                                       <td colspan="3"><font face="MS Sans Serif" size="3">[หน้าก่อน]
+                                          [หน้าต่อไป]</font>
+                                       </td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <!-- End Page Detail -->
+                           </font>
+                        </font>
+                     </font>
+                  </font>
+               </td>
+            </tr>
+            <!-- Footer -->
+         </tbody>
+      </table>
+      <div id="loom-companion-mv3" ext-id="liecbddmkiiihnedobmlmillhodjkdmb">
+         <section id="shadow-host-companion"></section>
+      </div>
+   </body>
+</html>

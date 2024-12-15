@@ -1,12 +1,11 @@
-use crate::presentation::dto::course_response::{CourseDetailResponse, CourseTableResponse};
+use crate::presentation::dto::course_response::GroupedCourse;
 
-use super::course::{CourseSearch, CourseTableSearch};
+use super::course::CourseSearch;
 
 use anyhow::Result;
 use axum::async_trait;
 
 #[async_trait]
 pub trait CourseScraper {
-    async fn search_courses(&self, search: &CourseSearch) -> Result<Vec<CourseDetailResponse>>;
-    async fn get_courses(&self, search: &CourseTableSearch) -> Result<Vec<CourseTableResponse>>;
+    async fn search_courses(&self, search: &CourseSearch) -> Result<Vec<GroupedCourse>>;
 }

@@ -9,6 +9,9 @@ pub fn load() -> Result<DotEnvyConfig> {
     dotenvy::dotenv().ok();
 
     let server = Server {
+        course_reg_url: std::env::var("COURSE_REG_URL")
+            .expect("COURSE_REG_URL is invalid")
+            .parse()?,
         port: std::env::var("SERVER_PORT")
             .expect("SERVER_PORT is invalid")
             .parse()?,

@@ -14,9 +14,11 @@ use crate::{config::config_model::DotEnvyConfig, infrastructure::axum_http::rout
 use super::default_routers::{health_check, not_found};
 
 pub async fn start(config: Arc<DotEnvyConfig>) -> Result<()> {
+    let base_url_scrapper = config.server.course_reg_url.clone();
+
     let app = Router::new()
         .fallback(not_found)
-        .nest("/courses", routers::course::routes())
+        .nest("/courses", routers::course::routes(base_url_scrapper))
         .route("/health", get(health_check))
         .layer(
             CorsLayer::new()
