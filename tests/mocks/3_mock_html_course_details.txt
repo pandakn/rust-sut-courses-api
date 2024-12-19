@@ -1,0 +1,65 @@
+<table border="0" cellspacing="0" cellpadding="0">
+   <tbody>
+      <tr>
+         <td width="20"></td>
+         <td>
+            <table border="0" cellspacing="0" cellpadding="2">
+               <tbody>
+                  <tr>
+                     <td><b><font face="MS Sans Serif" size="3">523491</font></b></td>
+                     <td colspan="3"><b><font face="MS Sans Serif" size="3">COOPERATIVE EDUCATION I</font></b></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td colspan="3"><font face="MS Sans Serif" size="3">สหกิจศึกษา 1</font></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td valign="top"><font face="MS Sans Serif" size="3">สังกัด</font></td>
+                     <td colspan="2"><font face="MS Sans Serif" size="3">สำนักวิชาวิศวกรรมศาสตร์, วิศวกรรมคอมพิวเตอร์</font></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td><font face="MS Sans Serif" size="3">หน่วยกิต</font></td>
+                     <td colspan="2"><font face="MS Sans Serif" size="3">8 (0-0-0)</font></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td><font face="MS Sans Serif" size="3">สถานะรายวิชา:<font face="MS Sans Serif" size="3"></font></font></td>
+                     <td><font face="MS Sans Serif" size="3">ใช้งาน</font></td>
+                  </tr>
+                  <tr valign="TOP">
+                     <td></td>
+                     <td><font face="MS Sans Serif" size="3"><font color="#800000">เงื่อนไขรายวิชา:</font></font></td>
+                     <td><font face="MS Sans Serif" size="3"> <a href="#" title="PRE-COOPERATIVE EDUCATION">523490</a> หรือ<br> <a href="#" title="PRE-COOPERATIVE AND WORK-INTEGRATED EDUCATION">CWI01 4100</a> <br>และรายวิชาที่สาขาวิชากำหนด</font></td>
+                  </tr>
+                  <tr valign="TOP">
+                     <td></td>
+                     <td><font face="MS Sans Serif" size="3"><font color="#800000">รายวิชาต่อเนื่อง:</font></font></td>
+                     <td><font face="MS Sans Serif" size="3"><a href="#" title="COOPERATIVE EDUCATION II">523492</a></font></td>
+                  </tr>
+                  <tr valign="TOP">
+                     <td></td>
+                     <td><font face="MS Sans Serif" size="3"><font color="#800000">รายวิชาเทียบเท่า:</font></font></td>
+                     <td><font face="MS Sans Serif" size="3"><a href="#" title="COOPERATIVE EDUCATION I">523491</a>, <a href="#" title="COOPERATIVE AND WORK-INTEGRATED EDUCATION I">CWI01 4101</a></font></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td colspan="3"><font face="MS Sans Serif" size="2" color="#000000"><b>เลือก ปีการศึกษา:</b></font><a href="class_info_2.asp?courseid=1003956&amp;Acadyear=2567&amp;Semester=1&amp;option=0&amp;backto=home&amp;normalURL="><img src="images/common/button/pull_left_1.gif" width="10" height="11" border="0"></a>&nbsp;<font face="MS Sans Serif" size="3" color="#000080">2 / 2567<a href="class_info_2.asp?courseid=1003956&amp;Acadyear=2567&amp;Semester=3&amp;option=0&amp;backto=home&amp;normalURL="><img src="images/common/button/pull_right_1.gif" width="10" height="11" border="0"></a>&nbsp;</font></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td>รายชื่อ</td>
+                     <td><img src="images/common/misc\msword.gif" border="0" width="28" height="18">&nbsp;<font face="MS Sans Serif" size="2" color="red">กรุณาดำเนินการเข้าสู่ระบบหากต้องการตรวจสอบรายชื่อ</font></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                     <td>รายชื่อ</td>
+                     <td><img src="images/common/misc\msexcel.gif" border="0" width="28" height="18">&nbsp;<font face="MS Sans Serif" size="2" color="red">กรุณาดำเนินการเข้าสู่ระบบหากต้องการตรวจสอบรายชื่อ</font></td>
+                  </tr>
+               </tbody>
+            </table>
+         </td>
+      </tr>
+   </tbody>
+</table>

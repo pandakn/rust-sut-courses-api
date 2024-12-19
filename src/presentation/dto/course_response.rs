@@ -1,6 +1,13 @@
 use derivative::Derivative;
 use serde::{Deserialize, Serialize};
 
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
+pub struct CourseRequirements {
+    pub course_condition: Vec<String>,
+    pub continue_course: Vec<String>,
+    pub equivalent_course: Vec<String>,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct CourseDetailResponse {
     pub course_name_en: String,
@@ -8,6 +15,9 @@ pub struct CourseDetailResponse {
     pub faculty: String,
     pub department: String,
     pub course_status: String,
+    pub course_condition: Vec<String>,
+    pub continue_course: Vec<String>,
+    pub equivalent_course: Vec<String>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]

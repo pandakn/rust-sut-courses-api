@@ -1,4 +1,5 @@
-use crate::presentation::dto::course_response::CourseDetailResponse;
+// TODO: implement rest data and refactor
+use crate::presentation::dto::course_response::{CourseDetailResponse, CourseRequirements};
 use anyhow::{anyhow, Context, Result};
 use scraper::{ElementRef, Html, Selector};
 use tracing::{debug, warn};
@@ -12,6 +13,7 @@ use tracing::{debug, warn};
 /// # Returns
 ///
 /// A `Result` containing an `Option` of `CourseDetailResponse` if parsing is successful
+// TODO: implement logic to scrape course exam info
 pub fn scrape_course_details(html: &str) -> Result<Option<CourseDetailResponse>> {
     // Early return for empty or whitespace-only HTML
     if html.trim().is_empty() {
@@ -73,6 +75,10 @@ pub fn scrape_course_details(html: &str) -> Result<Option<CourseDetailResponse>>
     // Split faculty and department with robust handling
     let (faculty, department) = split_faculty_data(&faculty_data);
 
+    let course_requirements = scrape_course_requirements(&html)?;
+    let course_condition = course_requirements.course_condition;
+    let continue_course = course_requirements.continue_course;
+    let equivalent_course = course_requirements.equivalent_course;
     // Construct and return the course detail response
     Ok(Some(CourseDetailResponse {
         course_name_en,
@@ -80,6 +86,9 @@ pub fn scrape_course_details(html: &str) -> Result<Option<CourseDetailResponse>>
         faculty,
         department,
         course_status,
+        course_condition,
+        continue_course,
+        equivalent_course,
     }))
 }
 
@@ -114,4 +123,69 @@ fn split_faculty_data(faculty_data: &str) -> (String, String) {
         .split_once(", ")
         .map(|(f, d)| (f.trim().to_string(), d.trim().to_string()))
         .unwrap_or_else(|| (faculty_data.to_string(), "N/A".to_string()))
+}
+
+fn extract_course(html: &str, label: &str) -> Vec<String> {
+    let document = Html::parse_document(html);
+
+    // Selector to get all rows in the table
+    let row_selector = Selector::parse("tr").unwrap();
+    let td_selector = Selector::parse("td").unwrap();
+    let link_selector = Selector::parse("a").unwrap();
+
+    let mut data = Vec::new();
+
+    // Iterate over each table row
+    for row in document.select(&row_selector) {
+        let tds: Vec<_> = row.select(&td_selector).collect();
+        if tds.len() >= 2 {
+            // Check if the second column contains the label
+            if let Some(label_text) = tds[1].text().next() {
+                if label_text.contains(label) {
+                    // Extract course IDs from the third column
+                    for link in tds[2].select(&link_selector) {
+                        if let Some(course_id) = link.text().next() {
+                            data.push(course_id.to_string());
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    data
+}
+
+pub fn scrape_course_requirements(html: &str) -> Result<CourseRequirements> {
+    // // Parse the HTML document
+    // let document = Html::parse_document(html);
+
+    // // Create selector for anchor tags with title attribute
+    // let link_selector =
+    //     Selector::parse("a[title]").map_err(|e| anyhow!("Failed to parse link selector: {}", e))?;
+
+    // // Find all matching elements and collect their titles
+    // let titles: Vec<String> = document
+    //     .select(&link_selector)
+    //     .filter_map(|el| el.value().attr("title"))
+    //     .map(String::from)
+    //     .collect();
+    // // Print results (for debugging)
+    // println!("Found titles: {:?}", titles);
+
+    // Get values and remove duplicates using HashSet
+    let mut course_condition: Vec<String> = extract_course(html, "เงื่อนไขรายวิชา");
+    course_condition.dedup();
+
+    let mut continue_course: Vec<String> = extract_course(html, "รายวิชาต่อเนื่อง");
+    continue_course.dedup();
+
+    let mut equivalent_course: Vec<String> = extract_course(html, "รายวิชาเทียบเท่า");
+    equivalent_course.dedup();
+
+    Ok(CourseRequirements {
+        course_condition,
+        continue_course,
+        equivalent_course,
+    })
 }
