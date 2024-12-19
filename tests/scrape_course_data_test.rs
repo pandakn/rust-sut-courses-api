@@ -1,7 +1,8 @@
+mod helpers;
+
 #[cfg(test)]
 mod tests {
     use pretty_assertions::assert_eq;
-    use std::fs;
 
     use rust_sut_courses_api::{
         infrastructure::scraper::courses_data_scraper::scrape_course_data,
@@ -9,6 +10,8 @@ mod tests {
             ClassSchedule, CourseDetails, CourseName, Exam, ExamInfo, GroupedCourse, Seat, Section,
         },
     };
+
+    use crate::helpers::load_mock_html;
 
     fn create_mock_course_details() -> CourseDetails {
         CourseDetails {
@@ -139,9 +142,7 @@ mod tests {
 
     #[test]
     fn test_scrape_course_data() {
-        // Read the mock HTML content from a file
-        let mock_html = fs::read_to_string("tests/mock_html_course_table.txt")
-            .expect("Failed to read mock HTML file");
+        let mock_html = load_mock_html("mock_html_course_table.txt");
 
         let result = match scrape_course_data(&mock_html) {
             Ok(data) => data,
