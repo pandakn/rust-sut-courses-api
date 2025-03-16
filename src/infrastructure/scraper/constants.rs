@@ -13,3 +13,22 @@ lazy_static::lazy_static! {
         m
     };
 }
+
+lazy_static::lazy_static! {
+    pub static ref MONTH_ABBREVIATIONS: HashMap<&'static str, &'static str> = {
+        let mut m = HashMap::new();
+        m.insert("ม.ค.", "January");
+        m.insert("ก.พ.", "February");
+        m.insert("มี.ค.", "March");
+        m.insert("เม.ย.", "April");
+        m.insert("พ.ค.", "May");
+        m.insert("มิ.ย.", "June");
+        m.insert("ก.ค.", "July");
+        m.insert("ส.ค.", "August");
+        m.insert("ก.ย.", "September");
+        m.insert("ต.ค.", "October");
+        m.insert("พ.ย.", "November");
+        m.insert("ธ.ค.", "December");
+        m
+    };
+}

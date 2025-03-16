@@ -1,55 +1,89 @@
 use anyhow::Result;
 use scraper::{Html, Selector};
 use std::collections::HashMap;
+use tokio::task::spawn_blocking;
 use tracing::debug;
 use uuid::Uuid;
 
-use crate::presentation::dto::course_response::{Course, CourseName, Exam, GroupedCourse, Section};
+use crate::presentation::dto::course_response::{
+    Course, CourseDetails, CourseName, Exam, GroupedCourse, Section,
+};
 
 use super::{parser::CourseRowParser, selector::CourseRowSelectors};
 
-pub fn scrape_course_data(html: &str) -> Result<Vec<GroupedCourse>> {
-    // Early return for empty or whitespace-only HTML
+pub async fn scrape_course_data(html: &str) -> Result<Vec<GroupedCourse>> {
     if html.trim().is_empty() {
         debug!("Received empty or whitespace-only HTML for course scraping");
         return Ok(Vec::new());
     }
 
-    let document = Html::parse_document(html);
-    let row_selector = Selector::parse("table:nth-child(2) tr[valign]").unwrap();
+    let html_owned = html.to_string();
+    let base_data_list = spawn_blocking(move || {
+        let document = Html::parse_document(&html_owned);
+        let row_selector = Selector::parse("table:nth-child(2) tr[valign]").unwrap();
+        let selectors = CourseRowSelectors::new().expect("Failed to initialize selectors");
 
-    let mut courses: Vec<Course> = Vec::new();
+        document
+            .select(&row_selector)
+            .map(|row| CourseRowParser::new(row, &selectors).parse_base_data())
+            .collect::<Vec<_>>()
+    })
+    .await?;
 
-    for row in document.select(&row_selector) {
-        let course_row_selectors =
-            CourseRowSelectors::new().expect("Failed to initialize selectors");
-        let course_parser = CourseRowParser::new(row, &course_row_selectors);
+    let mut course_futures = Vec::new();
 
-        let course = course_parser.parse();
+    for base_data in base_data_list {
+        course_futures.push(async move {
+            let url = base_data.url.clone();
+            let course_details = CourseRowParser::fetch_course_details(&url).await;
 
-        let data_obj = Course {
-            id: Uuid::new_v4().to_string(),
-            url: course.url,
-            course_code: course.course_code,
-            version: course.version,
-            course_name_en: course.course_name_en,
-            course_name_th: course.course_name_th,
-            faculty: course.faculty,
-            department: course.department,
-            note: course.note,
-            professors: course.professors,
-            credit: course.credit,
-            section: course.section,
-            status_section: course.status_section,
-            language: course.language,
-            degree: course.degree,
-            class_schedule: course.class_schedule,
-            seat: course.seat,
-            details: course.details,
-        };
+            let details = CourseDetails {
+                course_status: course_details
+                    .as_ref()
+                    .map(|d| d.course_status.clone())
+                    .unwrap_or_default(),
+                course_condition: course_details.as_ref().map(|d| d.course_condition.clone()),
+                continue_course: course_details.as_ref().map(|d| d.continue_course.clone()),
+                equivalent_course: course_details.as_ref().map(|d| d.equivalent_course.clone()),
+                mid_exam: course_details.as_ref().and_then(|d| d.midterm.clone()),
+                final_exam: course_details.as_ref().and_then(|d| d.r#final.clone()),
+            };
 
-        courses.push(data_obj);
+            Course {
+                id: Uuid::new_v4().to_string(),
+                url,
+                course_code: base_data.course_code,
+                version: base_data.version,
+                course_name_en: course_details
+                    .as_ref()
+                    .map(|d| d.course_name_en.clone())
+                    .unwrap_or_default(),
+                course_name_th: course_details
+                    .as_ref()
+                    .and_then(|details| Some(details.course_name_th.clone())),
+                faculty: course_details
+                    .as_ref()
+                    .map(|d| d.faculty.clone())
+                    .unwrap_or_default(),
+                department: course_details
+                    .as_ref()
+                    .map(|d| d.department.clone())
+                    .unwrap_or_default(),
+                note: base_data.note,
+                professors: base_data.professors,
+                credit: base_data.credit,
+                section: base_data.section,
+                status_section: base_data.status_section,
+                language: base_data.language,
+                degree: base_data.degree,
+                class_schedule: base_data.class_schedule,
+                seat: base_data.seat,
+                details,
+            }
+        });
     }
+
+    let courses = futures::future::join_all(course_futures).await;
 
     Ok(grouped_courses(&courses))
 }

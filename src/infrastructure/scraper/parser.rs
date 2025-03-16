@@ -1,14 +1,11 @@
 use crate::{
     infrastructure::scraper::course_details_scraper::scrape_course_details,
-    presentation::dto::course_response::{
-        ClassSchedule, Course, CourseDetailResponse, CourseDetails, Seat,
-    },
+    presentation::dto::course_response::{ClassSchedule, CourseBase, CourseDetailResponse, Seat},
     utils::string_utils::{extract_value_in_brackets, trim_space},
 };
 use scraper::ElementRef;
-use uuid::Uuid;
 
-use super::{constants::COURSE_STATUS_OBJ, fetch::fetch_html, mock, selector::CourseRowSelectors};
+use super::{constants::COURSE_STATUS_OBJ, fetch::fetch_html, selector::CourseRowSelectors};
 
 pub struct CourseRowParser<'a> {
     row: ElementRef<'a>,
@@ -20,42 +17,38 @@ impl<'a> CourseRowParser<'a> {
         Self { row, selectors }
     }
 
-    pub fn parse(&self) -> Course {
+    pub fn parse_base_data(&self) -> CourseBase {
         let (course_code, version) = self.parse_course_code();
-
         let url = self.parse_course_url();
+        let note = self.parse_note();
+        let professors = self.parse_professors();
+        let credit = self.get_text(&self.selectors.credit);
+        let section = self.get_text(&self.selectors.section);
+        let status_section = self.parse_status();
+        let language = self.parse_language();
+        let degree = self.get_text(&self.selectors.degree);
+        let class_schedule = self.parse_schedule();
+        let seat = self.parse_seat();
 
-        let course_result: Course = Course {
-            id: Uuid::new_v4().to_string(),
-            url,
+        CourseBase {
             course_code,
             version,
-            course_name_en: String::from("mock course name en"), // TODO: Implement actual parsing
-            course_name_th: Some(String::from("mock course name th")), // TODO: Implement actual parsing
-            faculty: String::from("mock faculty"), // TODO: Implement actual parsing
-            department: String::from("mock department"), // TODO: Implement actual parsing
-            note: self.parse_note(),
-            professors: self.parse_professors(),
-            credit: self.get_text(&self.selectors.credit),
-            section: self.get_text(&self.selectors.section),
-            status_section: self.parse_status(),
-            language: self.parse_language(),
-            degree: self.get_text(&self.selectors.degree),
-            class_schedule: self.parse_schedule(),
-            seat: self.parse_seat(),
-            details: self.parse_course_details(),
-        };
-
-        course_result
+            url,
+            note,
+            professors,
+            credit,
+            section,
+            status_section,
+            language,
+            degree,
+            class_schedule,
+            seat,
+        }
     }
 
-    // TODO: Implement actual course details parsing
-    async fn _get_course_details(&self, url: String) -> Option<CourseDetailResponse> {
-        let html = fetch_html(&url).await.unwrap();
-
-        let course_details = scrape_course_details(html.as_str()).unwrap();
-
-        course_details
+    pub async fn fetch_course_details(url: &str) -> Option<CourseDetailResponse> {
+        let html = fetch_html(url).await.unwrap();
+        scrape_course_details(&html).unwrap()
     }
 
     fn parse_course_code(&self) -> (String, String) {
@@ -123,11 +116,6 @@ impl<'a> CourseRowParser<'a> {
                 .unwrap_or("")
                 .to_string(),
         )
-    }
-
-    fn parse_course_details(&self) -> CourseDetails {
-        // TODO: Implement actual course details parsing
-        mock::mock_course_details()
     }
 
     fn get_text(&self, selector: &scraper::Selector) -> String {

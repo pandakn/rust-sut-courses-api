@@ -15,26 +15,23 @@ mod tests {
 
     fn create_mock_course_details() -> CourseDetails {
         CourseDetails {
-            course_status: String::from("Active"),
-            course_condition: Some(vec![
-                String::from("Must have passed Math 101"),
-                String::from("Must be in the 2nd year"),
-            ]),
-            continue_course: Some(vec![String::from("Advanced Math 201")]),
-            equivalent_course: Some(vec![String::from("Math 101B"), String::from("Math 101C")]),
+            course_status: String::from("ใช้งาน"),
+            course_condition: Some(vec![String::from("523331")]),
+            continue_course: Some(vec![String::from("523435")]),
+            equivalent_course: Some(vec![]),
             mid_exam: Some(ExamInfo {
-                date: String::from("10"),
-                month: String::from("June"),
-                times: String::from("10:00 AM"),
-                year: String::from("2024"),
-                room: String::from("Room 101"),
+                date: String::from("9"),
+                month: String::from("December"),
+                times: String::from("12:00-14:00"),
+                year: String::from("2567"),
+                room: String::from("อาคารB2ห้องB5204(สอบตามตารางมหาวิทยาลัย)"),
             }),
             final_exam: Some(ExamInfo {
-                date: String::from("20"),
-                month: String::from("June"),
-                times: String::from("02:00 PM"),
-                year: String::from("2024"),
-                room: String::from("Room 202"),
+                date: String::from("27"),
+                month: String::from("January"),
+                times: String::from("09:00-11:00"),
+                year: String::from("2568"),
+                room: String::from("อาคารBห้องB2102(สอบตามตารางมหาวิทยาลัย)"),
             }),
         }
     }
@@ -124,14 +121,14 @@ mod tests {
             course_code: "523332".to_string(),
             version: "2".to_string(),
             course_name: CourseName {
-                en: "mock course name en".to_string(),
-                th: Some("mock course name th".to_string()),
+                en: "SOFTWARE ENGINEERING".to_string(),
+                th: Some("วิศวกรรมซอฟต์แวร์".to_string()),
             },
             credit: "4 (3-3-9)".to_string(),
             degree: "1".to_string(),
-            department: "mock department".to_string(),
-            faculty: "mock faculty".to_string(),
-            course_status: "Active".to_string(),
+            department: "วิศวกรรมคอมพิวเตอร์".to_string(),
+            faculty: "สำนักวิชาวิศวกรรมศาสตร์".to_string(),
+            course_status: "ใช้งาน".to_string(),
             course_condition: mock_course_details.course_condition,
             continue_course: mock_course_details.continue_course,
             equivalent_course: mock_course_details.equivalent_course,
@@ -140,11 +137,11 @@ mod tests {
         }]
     }
 
-    #[test]
-    fn test_scrape_course_data() {
+    #[tokio::test]
+    async fn test_scrape_course_data() {
         let mock_html = load_mock_html("mock_html_course_table.txt");
 
-        let result = match scrape_course_data(&mock_html) {
+        let result = match scrape_course_data(&mock_html).await {
             Ok(data) => data,
             Err(e) => panic!("Failed to scrape course data: {:?}", e),
         };

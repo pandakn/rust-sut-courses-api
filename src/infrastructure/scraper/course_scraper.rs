@@ -5,7 +5,7 @@ use crate::{
     domain::{course::CourseSearch, course_scraper::CourseScraper},
     presentation::dto::course_response::GroupedCourse,
 };
-use anyhow::{Ok, Result};
+use anyhow::Result;
 use axum::async_trait;
 
 pub struct CourseUrlScraper {
@@ -23,12 +23,10 @@ impl CourseScraper for CourseUrlScraper {
     async fn search_courses(&self, search: &CourseSearch) -> Result<Vec<GroupedCourse>> {
         let url = build_search_url(self.base_url.clone(), search);
 
-        // Fetch HTML content from the constructed URL
         let html = fetch_html(&url).await?;
 
-        // Parse the fetched HTML content
-        let courses_table = scrape_course_data(&html)?;
+        let grouped_courses = scrape_course_data(&html).await?;
 
-        Ok(courses_table)
+        Ok(grouped_courses)
     }
 }

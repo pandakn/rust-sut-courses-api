@@ -1,0 +1,281 @@
+<body topmargin="0" leftmargin="0" marginwidth="0" marginheight="0" bgcolor="#FFFFFF" text="#000000" alink="#003399" link="#003399" vlink="#003399" class="vsc-initialized">
+   <table border="0" cellpadding="0" cellspacing="0">
+      <tbody>
+         <tr valign="TOP" bgcolor="#515151">
+            <td>
+               <!-- Begin Menu -->
+               <table border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                     <tr>
+                        <td>
+                           <a href="http://www.sut.ac.th/ces"><img src="images/thai/logo/u_logo.gif" border="0"></a> 
+                           <!-- <CENTER><font size="1" color="white">
+                              3/16/2025 5:15:44 PM</font></CENTER> -->
+                        </td>
+                     </tr>
+                     <tr>
+                        <td height="36">&nbsp;</td>
+                     </tr>
+                     <tr valign="MIDDLE">
+                        <td height="25" align="MIDDLE">
+                           <a href="class_info.asp?backto=home&amp;avs757594282=1">
+                           <img src="images/thai/menu/goback_1.gif" width="152" height="22" border="0"></a>
+                        </td>
+                     </tr>
+                     <tr>
+                        <td height="190">&nbsp;</td>
+                     </tr>
+                  </tbody>
+               </table>
+               <!-- End Menu -->
+            </td>
+            <!-- Vertical Bar -->
+            <td width="3" bgcolor="#FFFFA0">&nbsp;</td>
+            <td bgcolor="#FFFFFF">
+               <!-- Begin Page Detail -->
+               <img src="images/thai/banner/welcome_0.jpg" width="576" height="105">
+               <table border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                     <tr>
+                        <td width="20"></td>
+                        <td>
+                           <table border="0" cellspacing="0" cellpadding="2">
+                              <tbody>
+                                 <tr>
+                                    <td><b><font face="MS Sans Serif" size="3">523332</font></b></td>
+                                    <td colspan="3"><b><font face="MS Sans Serif" size="3">SOFTWARE ENGINEERING</font></b></td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td colspan="3"><font face="MS Sans Serif" size="3">วิศวกรรมซอฟต์แวร์</font></td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td valign="top"><font face="MS Sans Serif" size="3">สังกัด</font></td>
+                                    <td colspan="2"><font face="MS Sans Serif" size="3">สำนักวิชาวิศวกรรมศาสตร์, วิศวกรรมคอมพิวเตอร์</font></td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td><font face="MS Sans Serif" size="3">หน่วยกิต</font></td>
+                                    <td colspan="2"><font face="MS Sans Serif" size="3">4 (3-3-9)</font></td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td><font face="MS Sans Serif" size="3">สถานะรายวิชา:<font face="MS Sans Serif" size="3"></font></font></td>
+                                    <td><font face="MS Sans Serif" size="3">ใช้งาน</font></td>
+                                 </tr>
+                                 <tr valign="TOP">
+                                    <td></td>
+                                    <td><font face="MS Sans Serif" size="3"><font color="#800000">เงื่อนไขรายวิชา:</font></font></td>
+                                    <td><font face="MS Sans Serif" size="3"> <a href="#" title="SYSTEM ANALYSIS AND DESIGN">523331</a> </font></td>
+                                 </tr>
+                                 <tr valign="TOP">
+                                    <td></td>
+                                    <td><font face="MS Sans Serif" size="3"><font color="#800000">รายวิชาต่อเนื่อง:</font></font></td>
+                                    <td><font face="MS Sans Serif" size="3"><a href="#" title="SOFTWARE PROCESS">523435</a></font></td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td colspan="3"><font face="MS Sans Serif" size="2" color="#000000"><b>เลือก ปีการศึกษา:</b></font><a href="class_info_2.asp?courseid=1009172&amp;Acadyear=2567&amp;Semester=1&amp;option=0&amp;backto=home&amp;normalURL="><img src="images/common/button/pull_left_1.gif" width="10" height="11" border="0"></a>&nbsp;<font face="MS Sans Serif" size="3" color="#000080">2 / 2567<a href="class_info_2.asp?courseid=1009172&amp;Acadyear=2567&amp;Semester=3&amp;option=0&amp;backto=home&amp;normalURL="><img src="images/common/button/pull_right_1.gif" width="10" height="11" border="0"></a>&nbsp;</font></td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td>รายชื่อ</td>
+                                    <td><img src="images/common/misc\msword.gif" border="0" width="28" height="18">&nbsp;<font face="MS Sans Serif" size="2" color="red">กรุณาดำเนินการเข้าสู่ระบบหากต้องการตรวจสอบรายชื่อ</font></td>
+                                 </tr>
+                                 <tr>
+                                    <td></td>
+                                    <td>รายชื่อ</td>
+                                    <td><img src="images/common/misc\msexcel.gif" border="0" width="28" height="18">&nbsp;<font face="MS Sans Serif" size="2" color="red">กรุณาดำเนินการเข้าสู่ระบบหากต้องการตรวจสอบรายชื่อ</font></td>
+                                 </tr>
+                              </tbody>
+                           </table>
+                        </td>
+                     </tr>
+                  </tbody>
+               </table>
+               <img src="images/common/line/horz_1.gif" width="555" height="7"><br>
+               <table border="0" cellspacing="0" cellpadding="2">
+                  <tbody>
+                     <tr bgcolor="#FFFFF0">
+                        <td bgcolor="#FFFFFF">&nbsp;</td>
+                        <td colspan="13" align="LEFT" color="#FFFFFF"><font face="MS Sans Serif" color="#800000"><b>-</b></font></td>
+                     </tr>
+                     <tr bgcolor="#FFFFF0">
+                        <td bgcolor="#FFFFFF"></td>
+                        <td colspan="13" align="LEFT" color="#FFFFFF"><font face="MS Sans Serif" color="#808000"><b>ปริญญาตรี</b></font></td>
+                     </tr>
+                     <tr bgcolor="#F0F0F0">
+                        <td width="20" bgcolor="#FFFFFF"></td>
+                        <td colspan="2" align="CENTER" color="#FFFFFF"><font face="MS Sans Serif" size="2"><b>กลุ่ม</b></font></td>
+                        <td align="LEFT" color="#FFFFFF"><font face="MS Sans Serif" size="2"><b>วัน</b></font></td>
+                        <td align="LEFT" color="#FFFFFF"><font face="MS Sans Serif" size="2"><b>เวลา</b></font></td>
+                        <td align="LEFT" width="50" color="#FFFFFF"><font face="MS Sans Serif" size="2"><b>ห้อง</b></font></td>
+                        <td align="LEFT" width="50" color="#FFFFFF"><font face="MS Sans Serif" size="2"><b>อาคาร</b></font></td>
+                        <td align="LEFT" width="50" color="#FFFFFF"><font face="MS Sans Serif" size="2"><b>เรียน</b></font></td>
+                        <td colspan="3" align="LEFT" color="#FFFFFF" nowrap=""><font face="MS Sans Serif" size="2"><b>ที่นั่ง</b>(เปิด-ลง-เหลือ)</font></td>
+                        <td align="LEFT" color="#FFFFFF"><font face="MS Sans Serif" size="2"><b>หมวด</b></font></td>
+                        <td>&nbsp;<img src="images/common/misc\info.gif" border="0" width="28" height="18">&nbsp;<font face="MS Sans Serif" size="2" color="red">กรุณาดำเนินการเข้าสู่ระบบหากต้องการตรวจสอบรายชื่อ</font></td>
+                        <td>&nbsp;</td>
+                     </tr>
+                     <tr bgcolor="#F5F5F5">
+                        <td bgcolor="#FFFFFF"></td>
+                        <td align="RIGHT"><font size="1" face="MS Sans Serif"><b>&nbsp;&nbsp;01</b></font></td>
+                        <td width="20"><font size="1" face="MS Sans Serif">&nbsp;</font></td>
+                        <td><font size="1" face="MS Sans Serif">จันทร์</font></td>
+                        <td nowrap=""><font size="1" face="MS Sans Serif">09:00-12:00</font></td>
+                        <td><font size="1" face="MS Sans Serif">B1121</font></td>
+                        <td><font size="1" face="MS Sans Serif">B</font></td>
+                        <td><font size="1" face="MS Sans Serif">C</font></td>
+                        <td align="RIGHT"><font size="1" face="MS Sans Serif">5</font></td>
+                        <td align="CENTER"><font size="1" face="MS Sans Serif">5</font></td>
+                        <td align="LEFT"><font size="1" face="MS Sans Serif">0</font></td>
+                        <td align="LEFT"><font size="1" face="MS Sans Serif">M</font></td>
+                        <td>&nbsp;<img src="images/common/misc\info.gif" border="0" width="28" height="18">&nbsp;&nbsp;</td>
+                        <td>&nbsp;</td>
+                     </tr>
+                     <tr bgcolor="#F5f5f5">
+                        <td bgcolor="#FFFFFF"></td>
+                        <td>&nbsp;</td>
+                        <td width="20"><font size="1" face="MS Sans Serif">&nbsp;</font></td>
+                        <td><font size="1" face="MS Sans Serif">พุธ</font></td>
+                        <td nowrap=""><font size="1" face="MS Sans Serif">09:00-12:00</font></td>
+                        <td><font size="1" face="MS Sans Serif">F11-422.Software</font></td>
+                        <td><font size="1" face="MS Sans Serif">F11</font></td>
+                        <td><font size="1" face="MS Sans Serif">C</font></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td valign="top"><font face="MS Sans Serif" size="2"><b>สอบกลางภาค:</b></font></td>
+                        <td colspan="7"><font color="#0000FF" face="MS Sans Serif" size="2">   <b>9 ธ.ค. 2567</b> เวลา 12:00 - 14:00 อาคาร B2 ห้อง <u>B5204</u> <font color="green">(สอบตามตารางมหาวิทยาลัย)</font></font></td>
+                     </tr>
+                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td valign="top"><font face="MS Sans Serif" size="2"><b>สอบประจำภาค:</b></font></td>
+                        <td colspan="7"><font color="#0000FF" face="MS Sans Serif" size="2">   <b>27 ม.ค. 2568</b> เวลา 09:00 - 11:00 อาคาร B ห้อง <u>B2102</u> <font color="green">(สอบตามตารางมหาวิทยาลัย)</font></font></td>
+                     </tr>
+                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><font face="MS Sans Serif" size="2"><u>หมายเหตุ:</u></font></td>
+                        <td colspan="7"><font color="#900000" face="MS Sans Serif" size="2"> สำหรับหลักสูตรปรับปรุง พ.ศ. 2560</font></td>
+                     </tr>
+                     <tr align="left">
+                        <td colspan="14"><img src="images/common/line/horz_1.gif" width="555" height="7"></td>
+                     </tr>
+                     <tr bgcolor="#F5F5F5">
+                        <td bgcolor="#FFFFFF"></td>
+                        <td align="RIGHT"><font size="1" face="MS Sans Serif"><b>&nbsp;&nbsp;02</b></font></td>
+                        <td width="20"><font size="1" face="MS Sans Serif">&nbsp;</font></td>
+                        <td><font size="1" face="MS Sans Serif">จันทร์</font></td>
+                        <td nowrap=""><font size="1" face="MS Sans Serif">09:00-12:00</font></td>
+                        <td><font size="1" face="MS Sans Serif">B1121</font></td>
+                        <td><font size="1" face="MS Sans Serif">B</font></td>
+                        <td><font size="1" face="MS Sans Serif">C</font></td>
+                        <td align="RIGHT"><font size="1" face="MS Sans Serif">5</font></td>
+                        <td align="CENTER"><font size="1" face="MS Sans Serif">5</font></td>
+                        <td align="LEFT"><font size="1" face="MS Sans Serif">0</font></td>
+                        <td align="LEFT"><font size="1" face="MS Sans Serif">M</font></td>
+                        <td>&nbsp;<img src="images/common/misc\info.gif" border="0" width="28" height="18">&nbsp;&nbsp;</td>
+                        <td>&nbsp;</td>
+                     </tr>
+                     <tr bgcolor="#F5f5f5">
+                        <td bgcolor="#FFFFFF"></td>
+                        <td>&nbsp;</td>
+                        <td width="20"><font size="1" face="MS Sans Serif">&nbsp;</font></td>
+                        <td><font size="1" face="MS Sans Serif">พุธ</font></td>
+                        <td nowrap=""><font size="1" face="MS Sans Serif">13:00-16:00</font></td>
+                        <td><font size="1" face="MS Sans Serif">F11-422.Software</font></td>
+                        <td><font size="1" face="MS Sans Serif">F11</font></td>
+                        <td><font size="1" face="MS Sans Serif">C</font></td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                        <td>&nbsp;</td>
+                     </tr>
+                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td valign="top"><font face="MS Sans Serif" size="2"><b>สอบกลางภาค:</b></font></td>
+                        <td colspan="7"><font color="#0000FF" face="MS Sans Serif" size="2">   <b>9 ธ.ค. 2567</b> เวลา 12:00 - 14:00 อาคาร B2 ห้อง <u>B5204</u> <font color="green">(สอบตามตารางมหาวิทยาลัย)</font></font></td>
+                     </tr>
+                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td valign="top"><font face="MS Sans Serif" size="2"><b>สอบประจำภาค:</b></font></td>
+                        <td colspan="7"><font color="#0000FF" face="MS Sans Serif" size="2">   <b>27 ม.ค. 2568</b> เวลา 09:00 - 11:00 อาคาร B ห้อง <u>B2102</u> <font color="green">(สอบตามตารางมหาวิทยาลัย)</font></font></td>
+                     </tr>
+                     <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td><font face="MS Sans Serif" size="2"><u>หมายเหตุ:</u></font></td>
+                        <td colspan="7"><font color="#900000" face="MS Sans Serif" size="2"> สำหรับหลักสูตรปรับปรุง พ.ศ. 2560</font></td>
+                     </tr>
+                     <tr align="left">
+                        <td colspan="14"><img src="images/common/line/horz_1.gif" width="555" height="7"></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <table border="0" cellspacing="0" cellpadding="0">
+                  <tbody>
+                     <tr>
+                        <td width="20"></td>
+                        <td><font face="Tahoma" size="1" color="#4040AA"><b>Course Description</b></font><br><font face="MS Sans Serif" size="1"><br><font face="MS Sans Serif" size="2"><b>หมายเหตุ</b><br><b>เรียน</b><font face="MS Sans Serif" size="2">&nbsp;&nbsp;C = Lecture&nbsp;&nbsp;L = Lab&nbsp;&nbsp;P = โครงงาน&nbsp;&nbsp;R = ประชุม&nbsp;&nbsp;S = Self Study&nbsp;&nbsp;T = ติว<br><b>หมวด</b><font face="MS Sans Serif" size="2">&nbsp;&nbsp;B = วิชาเสริมพื้นฐาน&nbsp;&nbsp;E = วิชาเลือกเฉพาะสาขา&nbsp;&nbsp;F = วิชาเลือกเสรี&nbsp;&nbsp;M = วิชาพื้นฐาน&nbsp;&nbsp;W = วิชาบังคับ&nbsp;&nbsp;X = - ยังไม่กำหนด</font></font></font></font></td>
+                     </tr>
+                  </tbody>
+               </table>
+               <!-- End Page Detail -->
+            </td>
+         </tr>
+         <!-- Footer -->
+         <tr>
+            <td width="173" height="20" bgcolor="#515151">&nbsp;</td>
+            <td width="3" bgcolor="#FFFFA0">&nbsp;</td>
+            <td></td>
+         </tr>
+         <tr>
+            <td width="173" align="CENTER" bgcolor="#515151"></td>
+            <!-- ยกเลิก logo AVS
+               <TD WIDTH=173 ALIGN=CENTER BGCOLOR=#515151><A HREF=http://www.avs.co.th><IMG SRC= images/thai/logo/avs3d_1.gif WIDTH=88 HEIGHT=29 BORDER=0></A></TD>
+               -->
+            <td width="3" bgcolor="#FFFFA0">&nbsp;</td>
+            <td>
+               &nbsp;&nbsp;&nbsp;&nbsp;<a name="bottom" href="#top"><img src="images/common/button/go_top_1.gif" width="129" height="29" border="0"></a>
+               <!-- ลบ script sms ออกไป -->
+               <br>
+               <font size="-2" color="gray">&nbsp;&nbsp;&nbsp;&nbsp;- การแสดงผลที่เหมาะสมแนะนำให้ใช้ browser เป็น Internet Explorer Version 5.0 ขึ้นไป<br>
+               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;และขนาดความกว้างหน้าจอ (Screen Area) เป็น 1024x768 pixels</font>
+            </td>
+         </tr>
+         <tr>
+            <td width="173" bgcolor="#515151">&nbsp;</td>
+            <td width="3" bgcolor="#FFFFA0">&nbsp;</td>
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;<b><font face="tahoma" size="1" color="#000000">contact :<a href="mailto:"> <font color="#A00000" face="tahoma">ศูนย์บริการการศึกษา อาคารเรียนรวม 2 ทุกวันทำการ เวลา 8.30-16.30 น.</font></a></font></b></td>
+         </tr>
+         <tr>
+            <td width="173" bgcolor="#515151">&nbsp;</td>
+            <td width="3" bgcolor="#FFFFA0">&nbsp;</td>
+            <td></td>
+         </tr>
+      </tbody>
+   </table>
+   <div id="loom-companion-mv3" ext-id="liecbddmkiiihnedobmlmillhodjkdmb">
+      <div id="shadow-host-companion"></div>
+   </div>
+</body>

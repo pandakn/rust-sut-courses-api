@@ -8,7 +8,7 @@ pub struct CourseRequirements {
     pub equivalent_course: Vec<String>,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Debug, Clone, Serialize, Deserialize, PartialEq)]
 pub struct CourseDetailResponse {
     pub course_name_en: String,
     pub course_name_th: String,
@@ -18,6 +18,8 @@ pub struct CourseDetailResponse {
     pub course_condition: Vec<String>,
     pub continue_course: Vec<String>,
     pub equivalent_course: Vec<String>,
+    pub midterm: Option<ExamInfo>,
+    pub r#final: Option<ExamInfo>,
 }
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -101,6 +103,23 @@ pub struct Course {
     pub class_schedule: Vec<ClassSchedule>,
     pub seat: Seat,
     pub details: CourseDetails,
+}
+
+#[derive(Debug, Clone, Serialize, Deserialize, Derivative)]
+pub struct CourseBase {
+    pub course_code: String,
+    pub version: String,
+    pub url: String,
+    pub note: Option<String>,
+    pub professors: Vec<String>,
+    pub credit: String,
+    pub section: String,
+    pub status_section: String,
+    pub language: String,
+    pub degree: String,
+    pub class_schedule: Vec<ClassSchedule>,
+    pub seat: Seat,
+    // pub details: CourseDetails,
 }
 
 /// Represents a section of a course

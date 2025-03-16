@@ -41,7 +41,7 @@
                                     </tr>
                                     <tr valign="TOP">
                                        <td width="30"></td>
-                                       <td bgcolor="#F0F0F5"><font size="2">&nbsp;<a href="class_info_2.asp?backto=home&amp;option=0&amp;courseid=1009172&amp;coursecode=523332&amp;acadyear=2567&amp;semester=2&amp;avs826163971=35">523332 - 2</a>&nbsp;</font></td>
+                                       <td bgcolor="#F0F0F5"><font size="2">&nbsp;<a href="class_info_2.asp?backto=home&option=0&courseid=1009172&coursecode=523332&acadyear=2567&semester=2&avs826163971=35">523332 - 2</a>&nbsp;</font></td>
                                        <td bgcolor="#F0F0F5">
                                           <font size="2">
                                              SOFTWARE ENGINEERING<br>
@@ -69,7 +69,7 @@
                                     </tr>
                                     <tr valign="TOP">
                                        <td width="30"></td>
-                                       <td bgcolor="#F0F0FF"><font size="2">&nbsp;<a href="class_info_2.asp?backto=home&amp;option=0&amp;courseid=1009172&amp;coursecode=523332&amp;acadyear=2567&amp;semester=2&amp;avs826163971=36">523332 - 2</a>&nbsp;</font></td>
+                                       <td bgcolor="#F0F0FF"><font size="2">&nbsp;<a href="class_info_2.asp?backto=home&option=0&courseid=1009172&coursecode=523332&acadyear=2567&semester=2&avs826163971=36">523332 - 2</a>&nbsp;</font></td>
                                        <td bgcolor="#F0F0FF">
                                           <font size="2">
                                              SOFTWARE ENGINEERING<br>

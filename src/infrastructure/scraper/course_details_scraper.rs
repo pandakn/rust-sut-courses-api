@@ -1,6 +1,11 @@
 // TODO: implement rest data and refactor
-use crate::presentation::dto::course_response::{CourseDetailResponse, CourseRequirements};
-use anyhow::{anyhow, Context, Result};
+use crate::{
+    infrastructure::scraper::{extract_exam_info::extract_exam_info, utils},
+    presentation::dto::course_response::{
+        CourseDetailResponse, CourseRequirements, Exam, ExamInfo,
+    },
+};
+use anyhow::{anyhow, Context, Ok, Result};
 use scraper::{ElementRef, Html, Selector};
 use tracing::{debug, warn};
 
@@ -79,6 +84,12 @@ pub fn scrape_course_details(html: &str) -> Result<Option<CourseDetailResponse>>
     let course_condition = course_requirements.course_condition;
     let continue_course = course_requirements.continue_course;
     let equivalent_course = course_requirements.equivalent_course;
+
+    let course_exams = scrape_course_exams(&html)?;
+
+    let midterm = course_exams.midterm;
+    let final_exam = course_exams.r#final;
+
     // Construct and return the course detail response
     Ok(Some(CourseDetailResponse {
         course_name_en,
@@ -89,6 +100,8 @@ pub fn scrape_course_details(html: &str) -> Result<Option<CourseDetailResponse>>
         course_condition,
         continue_course,
         equivalent_course,
+        midterm,
+        r#final: final_exam,
     }))
 }
 
@@ -125,7 +138,8 @@ fn split_faculty_data(faculty_data: &str) -> (String, String) {
         .unwrap_or_else(|| (faculty_data.to_string(), "N/A".to_string()))
 }
 
-fn extract_course(html: &str, label: &str) -> Vec<String> {
+// *Need refactor
+fn extract_course_conditions(html: &str, label: &str) -> Vec<String> {
     let document = Html::parse_document(html);
 
     // Selector to get all rows in the table
@@ -157,35 +171,57 @@ fn extract_course(html: &str, label: &str) -> Vec<String> {
 }
 
 pub fn scrape_course_requirements(html: &str) -> Result<CourseRequirements> {
-    // // Parse the HTML document
-    // let document = Html::parse_document(html);
-
-    // // Create selector for anchor tags with title attribute
-    // let link_selector =
-    //     Selector::parse("a[title]").map_err(|e| anyhow!("Failed to parse link selector: {}", e))?;
-
-    // // Find all matching elements and collect their titles
-    // let titles: Vec<String> = document
-    //     .select(&link_selector)
-    //     .filter_map(|el| el.value().attr("title"))
-    //     .map(String::from)
-    //     .collect();
-    // // Print results (for debugging)
-    // println!("Found titles: {:?}", titles);
-
     // Get values and remove duplicates using HashSet
-    let mut course_condition: Vec<String> = extract_course(html, "เงื่อนไขรายวิชา");
+    let mut course_condition: Vec<String> = extract_course_conditions(html, "เงื่อนไขรายวิชา");
     course_condition.dedup();
 
-    let mut continue_course: Vec<String> = extract_course(html, "รายวิชาต่อเนื่อง");
+    let mut continue_course: Vec<String> = extract_course_conditions(html, "รายวิชาต่อเนื่อง");
     continue_course.dedup();
 
-    let mut equivalent_course: Vec<String> = extract_course(html, "รายวิชาเทียบเท่า");
+    let mut equivalent_course: Vec<String> = extract_course_conditions(html, "รายวิชาเทียบเท่า");
     equivalent_course.dedup();
 
     Ok(CourseRequirements {
         course_condition,
         continue_course,
         equivalent_course,
+    })
+}
+
+/// Extracts exam data (e.g., midterm or final) based on the keyword.
+fn extract_exam_data(document: &Html, keyword: &str) -> Result<Option<ExamInfo>> {
+    let elements = utils::select_contains(document, "td", keyword);
+
+    for element in elements {
+        if let Some(sibling) = utils::get_next_sibling(element) {
+            let raw_text_exam_info = sibling
+                .text()
+                .collect::<Vec<_>>()
+                .join(" ")
+                .trim()
+                .to_string();
+
+            if let Some(exam_info) = extract_exam_info(&raw_text_exam_info) {
+                // println!("Extracted Exam Info: {:?}", exam_info);
+                return Ok(Some(exam_info));
+            }
+        }
+    }
+
+    Ok(None)
+}
+
+pub fn scrape_course_exams(html: &str) -> Result<Exam> {
+    let document = Html::parse_document(html);
+
+    // Extract midterm exam info
+    let midterm_exam = extract_exam_data(&document, "สอบกลางภาค")?;
+
+    // Extract final exam info
+    let final_exam = extract_exam_data(&document, "สอบประจำภาค")?;
+
+    Ok(Exam {
+        midterm: midterm_exam,
+        r#final: final_exam,
     })
 }
