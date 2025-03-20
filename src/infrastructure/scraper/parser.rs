@@ -109,12 +109,10 @@ impl<'a> CourseRowParser<'a> {
 
     fn parse_language(&self) -> String {
         trim_space(
-            &self
-                .get_text(&self.selectors.language)
+            self.get_text(&self.selectors.language)
                 .split(':')
                 .next()
-                .unwrap_or("")
-                .to_string(),
+                .unwrap_or(""),
         )
     }
 

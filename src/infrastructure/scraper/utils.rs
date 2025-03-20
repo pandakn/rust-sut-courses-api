@@ -13,7 +13,7 @@ pub fn select_contains<'a>(
         .collect()
 }
 
-pub fn get_next_sibling<'a>(element: ElementRef<'a>) -> Option<ElementRef<'a>> {
+pub fn get_next_sibling(element: ElementRef<'_>) -> Option<ElementRef<'_>> {
     let mut next = element.next_sibling();
 
     while let Some(node) = next {

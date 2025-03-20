@@ -60,7 +60,7 @@ pub async fn scrape_course_data(html: &str) -> Result<Vec<GroupedCourse>> {
                     .unwrap_or_default(),
                 course_name_th: course_details
                     .as_ref()
-                    .and_then(|details| Some(details.course_name_th.clone())),
+                    .map(|details| details.course_name_th.clone()),
                 faculty: course_details
                     .as_ref()
                     .map(|d| d.faculty.clone())

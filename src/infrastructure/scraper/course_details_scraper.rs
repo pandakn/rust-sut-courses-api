@@ -80,12 +80,12 @@ pub fn scrape_course_details(html: &str) -> Result<Option<CourseDetailResponse>>
     // Split faculty and department with robust handling
     let (faculty, department) = split_faculty_data(&faculty_data);
 
-    let course_requirements = scrape_course_requirements(&html)?;
+    let course_requirements = scrape_course_requirements(html)?;
     let course_condition = course_requirements.course_condition;
     let continue_course = course_requirements.continue_course;
     let equivalent_course = course_requirements.equivalent_course;
 
-    let course_exams = scrape_course_exams(&html)?;
+    let course_exams = scrape_course_exams(html)?;
 
     let midterm = course_exams.midterm;
     let final_exam = course_exams.r#final;
@@ -115,7 +115,7 @@ pub fn scrape_course_details(html: &str) -> Result<Option<CourseDetailResponse>>
 /// # Returns
 ///
 /// An `Option` containing the trimmed text, or `None` if not found
-fn extract_text<'a>(table: &ElementRef, selector: &Selector) -> Option<String> {
+fn extract_text(table: &ElementRef, selector: &Selector) -> Option<String> {
     table
         .select(selector)
         .next()
