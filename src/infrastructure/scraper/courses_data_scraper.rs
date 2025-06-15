@@ -1,12 +1,13 @@
 use anyhow::Result;
+use reqwest::Url;
 use scraper::{Html, Selector};
-use std::collections::HashMap;
+use std::collections::{HashMap, HashSet};
 use tokio::task::spawn_blocking;
 use tracing::debug;
 use uuid::Uuid;
 
 use crate::presentation::dto::course_response::{
-    Course, CourseDetails, CourseName, Exam, GroupedCourse, Section,
+    Course, CourseBase, CourseDetails, CourseName, Exam, GroupedCourse, Section,
 };
 
 use super::{parser::CourseRowParser, selector::CourseRowSelectors};
@@ -31,6 +32,8 @@ pub async fn scrape_course_data(html: &str) -> Result<Vec<GroupedCourse>> {
     .await?;
 
     let mut course_futures = Vec::new();
+
+    println!("SSSSSSS: {:#?}", base_data_list);
 
     for base_data in base_data_list {
         course_futures.push(async move {
@@ -139,4 +142,91 @@ fn grouped_courses(courses: &[Course]) -> Vec<GroupedCourse> {
     }
 
     grouped_map.into_values().collect()
+}
+
+pub fn extract_course_base_data(html: &str) -> HashMap<String, CourseBase> {
+    let document = Html::parse_document(html);
+    let row_selector =
+        Selector::parse("table:nth-child(2) tr[valign]").expect("Failed to parse row selector");
+    let selectors = CourseRowSelectors::new().expect("Failed to initialize selectors");
+
+    let course_base_list = document
+        .select(&row_selector)
+        .map(|row| {
+            let course_base = CourseRowParser::new(row, &selectors).parse_base_data();
+            let format_key = format!("{}-{}", course_base.course_code, course_base.section);
+            (format_key, course_base)
+        })
+        .collect::<HashMap<_, _>>();
+
+    println!("Course Base List: {:#?}", course_base_list);
+
+    return course_base_list;
+}
+
+pub fn extract_all_course_urls(html: &str) -> HashMap<String, String> {
+    let document = Html::parse_document(html);
+    let row_selector = Selector::parse("table:nth-child(2) tr[valign]").unwrap();
+    let selectors = CourseRowSelectors::new().expect("Failed to initialize selectors");
+
+    let mut course_urls_map: HashMap<String, String> = HashMap::new();
+    let mut seen_course_codes: HashSet<String> = HashSet::new();
+
+    for row in document.select(&row_selector) {
+        let url = CourseRowParser::new(row, &selectors).parse_course_url();
+        let parsed_url = match Url::parse(&url) {
+            Ok(u) => u,
+            Err(_) => continue, // Skip malformed URLs
+        };
+
+        let course_code = parsed_url
+            .query_pairs()
+            .find(|(key, _)| key == "coursecode")
+            .map(|(_, value)| value.to_string())
+            .unwrap_or_default();
+
+        if seen_course_codes.contains(&course_code) {
+            continue;
+        }
+
+        seen_course_codes.insert(course_code.clone());
+        course_urls_map.insert(course_code, url);
+    }
+
+    course_urls_map
+}
+
+pub async fn fetch_course_details_map(html: &str) -> HashMap<String, CourseDetails> {
+    let course_urls_map = extract_all_course_urls(html);
+
+    println!("\n\n Course Urls Length {:?}\n\n", course_urls_map.len());
+
+    let mut course_futures = Vec::new();
+
+    for (course_code, course_url) in course_urls_map {
+        let code = course_code.clone();
+        let url = course_url.clone();
+
+        course_futures.push(async move {
+            let course_details = CourseRowParser::fetch_course_details(&url).await;
+
+            let details = CourseDetails {
+                course_status: course_details
+                    .as_ref()
+                    .map(|d| d.course_status.clone())
+                    .unwrap_or_default(),
+                course_condition: course_details.as_ref().map(|d| d.course_condition.clone()),
+                continue_course: course_details.as_ref().map(|d| d.continue_course.clone()),
+                equivalent_course: course_details.as_ref().map(|d| d.equivalent_course.clone()),
+                mid_exam: course_details.as_ref().and_then(|d| d.midterm.clone()),
+                final_exam: course_details.as_ref().and_then(|d| d.r#final.clone()),
+            };
+
+            (code, details)
+        });
+    }
+
+    let courses = futures::future::join_all(course_futures).await;
+
+    courses.into_iter().collect()
 }

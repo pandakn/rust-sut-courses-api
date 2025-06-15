@@ -56,7 +56,7 @@ impl<'a> CourseRowParser<'a> {
         self.transform_course_code(&code_str)
     }
 
-    fn parse_course_url(&self) -> String {
+    pub fn parse_course_url(&self) -> String {
         self.row
             .select(&self.selectors.course_link)
             .next()
