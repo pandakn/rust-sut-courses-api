@@ -8,4 +8,5 @@ use axum::async_trait;
 #[async_trait]
 pub trait CourseScraper {
     async fn search_courses(&self, search: &CourseSearch) -> Result<Vec<GroupedCourse>>;
+    async fn search_courses_v2(&self, search: &CourseSearch) -> Result<Vec<GroupedCourse>>;
 }

@@ -3,6 +3,7 @@ use super::{
 };
 use crate::{
     domain::{course::CourseSearch, course_scraper::CourseScraper},
+    infrastructure::scraper::courses_data_scraper::scrape_course_data_v2,
     presentation::dto::course_response::GroupedCourse,
 };
 use anyhow::Result;
@@ -26,6 +27,16 @@ impl CourseScraper for CourseUrlScraper {
         let html = fetch_html(&url).await?;
 
         let grouped_courses = scrape_course_data(&html).await?;
+
+        Ok(grouped_courses)
+    }
+
+    async fn search_courses_v2(&self, search: &CourseSearch) -> Result<Vec<GroupedCourse>> {
+        let url = build_search_url(self.base_url.clone(), search);
+
+        let html = fetch_html(&url).await?;
+
+        let grouped_courses = scrape_course_data_v2(&html).await?;
 
         Ok(grouped_courses)
     }

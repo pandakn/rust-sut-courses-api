@@ -19,8 +19,10 @@ pub fn routes(base_url: String) -> Router {
     let course_scraper = CourseUrlScraper::new(base_url);
     let courses_use_case = SearchCoursesUseCase::new(Arc::new(course_scraper));
 
+    // TODO: remove v2, It just test
     Router::new()
         .route("/", get(search_courses))
+        .route("/v2", get(search_courses_v2))
         .with_state(Arc::new(courses_use_case))
 }
 
@@ -32,6 +34,19 @@ where
     T: CourseScraper + Send + Sync,
 {
     match courses_use_case.search_courses(&search).await {
+        Ok(courses) => (StatusCode::OK, Json(courses)).into_response(),
+        Err(e) => (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()).into_response(),
+    }
+}
+
+pub async fn search_courses_v2<T>(
+    State(courses_use_case): State<Arc<SearchCoursesUseCase<T>>>,
+    search: Query<CourseSearch>,
+) -> impl IntoResponse
+where
+    T: CourseScraper + Send + Sync,
+{
+    match courses_use_case.search_courses_v2(&search).await {
         Ok(courses) => (StatusCode::OK, Json(courses)).into_response(),
         Err(e) => (StatusCode::INTERNAL_SERVER_ERROR, e.to_string()).into_response(),
     }

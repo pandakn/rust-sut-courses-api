@@ -27,4 +27,10 @@ where
 
         Ok(courses)
     }
+
+    pub async fn search_courses_v2(&self, search: &CourseSearch) -> Result<Vec<GroupedCourse>> {
+        let courses = self.course_scraper.search_courses_v2(search).await?;
+
+        Ok(courses)
+    }
 }

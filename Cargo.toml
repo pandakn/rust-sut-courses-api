@@ -37,5 +37,11 @@ futures = "0.3.31"
 spider = "2.37.108"
 spider_utils = "2.37.108"
 
+criterion = { version = "0.5", features = ["html_reports", "async_tokio"] }
+
 [dev-dependencies]
 pretty_assertions = "1.4.1"
+
+[[bench]]
+name = "scrape_course_data_benchmark"
+harness = false
